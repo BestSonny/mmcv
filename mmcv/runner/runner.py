@@ -251,6 +251,7 @@ class Runner(object):
         for i, data_batch in enumerate(data_loader):
             self._inner_iter = i
             self.call_hook('before_train_iter')
+            self.call_hook('every_n_iters')
             outputs = self.batch_processor(
                 self.model, data_batch, train_mode=True, **kwargs)
             if not isinstance(outputs, dict):
