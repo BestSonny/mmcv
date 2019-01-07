@@ -161,7 +161,7 @@ class InvLrUpdaterHook(LrUpdaterHook):
     def get_lr(self, runner, base_lr):
         progress = runner.epoch if self.by_epoch else runner.iter
         return base_lr * (1 + self.gamma * progress)**(-self.power)
-    
+
 class LambdaLrUpdaterHook(LrUpdaterHook):
 
     def __init__(self, lr_lambda, **kwargs):
